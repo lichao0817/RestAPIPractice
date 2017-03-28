@@ -1,8 +1,8 @@
 package model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -13,8 +13,8 @@ public class Record implements Serializable{
     private String firstName;
     private Gender gender;
     private String favoriteColor;
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="MM/dd/yyyy")
     private Date dateOfBirth;
-    private DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
     public Record() {}
     public Record(String lastName, String firstName, Gender gender, String favoriteColor, Date dateOfBirth) {
         this.lastName = lastName;
@@ -57,9 +57,5 @@ public class Record implements Serializable{
     }
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
-    }
-
-    public String toString() {
-        return lastName + ", " + firstName + ", " + gender + ", " + favoriteColor + ", " + df.format(dateOfBirth);
     }
 }
