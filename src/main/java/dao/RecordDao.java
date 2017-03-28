@@ -14,6 +14,9 @@ public class RecordDao {
             list = RecordUtil.getRecordsByBirthday(file);
         }
     }
+    public int count() {
+        return list.size();
+    }
     public List<Record> getAllRecords() {
         return list;
     }
